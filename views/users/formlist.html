@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="/bootstrap-4/css/bootstrap.css">
+</head>
+<body style="background-color: #80bdff !important;">
+<%- include('../layout/nav.html'); %>
+<div class="bg-white position-fixed " style="width: 400px;height: 600px;top:16%;left: 30%;border: #2B81AF 1px solid">
+    <p class="m-2 " style="font-size: 30px;text-align: center;">信息修改</p>
+    <form action="/users/formlist" method="post"  enctype="multipart/form-data">
+        <p><img src="../uploads/<%=data.user.pic%>" style="width: 120px;height: 100px;margin-left: 140px"></p>
+        <input type="text" name="username" value="<%=data.user.username%>" style="width:350px;height: 50px;margin-top: 20px;margin-left: 20px"/><br>
+        <input type="password"placeholder="请输入修改后的密码" name="serpwd" value="<%=data.user.password%>" style="width:350px;height: 50px;margin-top: 20px;margin-left: 20px"/><br>
+        <input type="text" name="address" value="<%=data.user.address%>"style="width:350px;height: 50px;margin-top: 20px;margin-left: 20px"/><br>
+        <input type="email" name="email" value="<%=data.user.email%>"style="width:350px;height: 50px;margin-top: 20px;margin-left: 20px"/><br>
+        <input type="text" name="job" value="<%=data.user.job%>"style="width:350px;height: 50px;margin-top: 20px;margin-left: 20px"/><br>
+        <input type="submit" value="修改" style="width:350px;height: 50px;margin-top: 20px;margin-left: 20px;border:#2a2a2a 1px solid;background-color:#2B81AF"/>
+    </form>
+</div>
+</body>
+</html>

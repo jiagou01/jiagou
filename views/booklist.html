@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="bootstrap-4/css/bootstrap.css">
+
+</head>
+<style>
+    .pic3{
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        border-radius: 50%;
+        margin-left: 70px;
+    }
+</style>
+<body>
+<%- include('./layout/nav.html'); %>
+<div class="all_four mt-2" style=" width:1200px;margin: 0 auto">
+<div class="card-body bg-white mt-4 float-left" style="border-bottom: #f2dede 1px solid;width:905px;">
+    <img src="../images/IMG_2301.JPG" class="mr-5 float-left" alt="..." style="width: 150px">
+    <h5 class="card-title">喜欢一本书</h5>
+    <p class="card-text text-decoration-none" style="font-size:medium;" > 在实训中我学到了很多新知识。是一个让我把书本上的理论知识运用于实践中的好机会。
+        这对于我来说也是一个技能的获取， 为以后找工作提供了一个很好的选择。
+        在这次实训中还锻炼了我其他方面的能力，提高了我的综合素质。.</p>
+</div>
+<div class="mt-4 float-right" style="width: 277.5px;height: 370px;background-color:#6a9fb5">
+    <span class="title1 ml-2" style="font-size: 25px">热门标签</span>
+    <div class="mt-4 w-100  " style="background-color: #80bdff !important;">
+        <button type="button" class="btn mt-2 ml-1 btn-outline-dark">衣服链接</button>
+        <button type="button" class="btn btn-outline-dark mt-2 ml-1">小姐姐</button>
+        <button type="button" class="btn btn-outline-dark mt-2 ml-4">精致</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">女孩</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">化妆</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">室友</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">好看</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">拍照</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">旅游</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">换装秀</button>
+        <button type="button" class="btn btn-outline-dark mt-2 ml-4">周震南</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">赖冠霖</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">易烊千玺</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">室友</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">跳舞</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">拍照</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">上课</button>
+        <button type="button" class="btn btn-outline-dark mt-1 ml-4">换装秀</button>
+    </div>
+</div>
+    <div class="position-relative " style="height: 1900px">
+    <div class="col-md-3 mt-4 position-absolute sticky-top" style="top:380px;left: 910px">
+        <div class="card text-light" style="width: 100%;background-color:  #80bdff !important;height: 491px !important;">
+            <img src="uploads/22.jpg" class="card-img-top  h-25 pic2" alt="...">
+            <img src="images/cute.jpg" class="card-img-top  pic3"  alt="...">
+            <div class="card-body " style="font-size: 17px;margin-left: 30px">
+                <p class="card-text">
+                <p style="text-decoration: none;font-size: 17px"> 博主：佳狗的日常</p>
+                <p style="text-decoration: none;font-size: 17px"> 现居：北京</p>
+                <p style="text-decoration: none;font-size: 17px"> 微信：15083697617</p>
+                <p style="text-decoration: none;font-size: 17px"> qq：1287831917</p>
+                <p style="text-decoration: none;font-size: 17px"> 职业：前端设计师</p>
+                <p style="text-decoration: none;font-size: 17px"> email：jaigou@qq.com</p>
+
+                </p>
+            </div>
+        </div>
+    </div>
+<div class="card mt-2 me position-absolute" style="width:905px;position: relative;top:190px">
+    <h5 class="card-header">喜欢的名著</h5>
+    <%data.articles.forEach(function(article,key){%>
+    <div class="card-body" style="border-bottom: #f2dede 1px solid">
+        <div style="height: 200px;width: 130px;float: left">
+        <img src="/uploads/<%=article.pic%>" class="mr-5 float-left" alt="..." style="width: 100px;">
+        </div>
+            <h5 class="card-title">  <a href="/user/show/<%=article.id%>">
+            <%=article.title%>
+        </a></h5>
+        <p class="card-text text-decoration-none" style="font-size:medium"> <%=article.content%></p>
+        <div style="">
+        <img src="../images/look_time1.png" style="width:30px;height: 30px ;margin-left: 350px">
+        <span>(<%=article.views%>)</span>
+        <a href="/user/show/<%=article.id%>" class="btn btn-primary " style="margin-left: 180px;position: absolute">阅读更多</a>
+        </div>
+    </div>
+    <%})%>
+</div>
+    </div>
+
+</div>
+</body>
+<script src="bootstrap-4/js/jquery-3.4.1.min.js"></script>
+<script src="bootstrap-4/js/bootstrap.js">
+</script>
+</html>

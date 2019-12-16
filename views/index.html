@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="bootstrap-4/css/bootstrap.css">
+
+
+  </head>
+  <style>
+    .pic1{
+      width: 100px;
+      height: 120px;
+      overflow: hidden;
+    }
+    .pic:hover{
+      transform: scale(1.2);
+      transition: all 0.5s;
+      border:#f2dede 2px solid;
+    }
+    .pic{
+      width: 100px;
+      height: 120px;
+      transition: all 0.5s;
+    }
+    .pic2:hover {
+      transform: scale(1.1);
+      transition: all 0.5s;
+    }
+    .pic2{
+      transition: all 0.5s;
+      width: 150px;
+      height: 100px;
+    }
+    .movie {
+      width: 150px;
+      position: relative;
+    }
+
+    .movie::after{
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100px;
+      background: black;
+      height: 1px;
+      display: block;
+      transition: all 1s;
+    }
+    .movie:hover::after{
+      width: 180px;
+      transition: all 1s;
+    }
+    .list-group-item{
+      width: 277.5px;
+      height: 50px;
+    }
+    .list-group-item:hover{
+      width: 277.5px;
+      height: 50px;
+      background-color: #c3e6cb;
+    }
+
+  </style>
+  <body>
+
+  <%- include('./layout/nav.html'); %>
+<div class="row  mt-4" style="width: 1230px;margin: 0 auto !important;position: relative">
+  <div class="col-md-3 mt-4 float-left">
+    <ul class="list-group" style="background-color: #4d4e53 !important;">
+      <li class="list-group-item text-info" style="background-color: #4d4e53 !important;">推荐</li>
+      <li class="list-group-item"><a href="user/vote" style="color: #2a2a2a"> 热评</a></li>
+      <li class="list-group-item"><a href="users/allmoco" style="color: #2a2a2a"> 影评</a></li>
+      <li class="list-group-item"><a href="/user/photos" style="color: #2a2a2a">拍照</a> </li>
+      <li class="list-group-item">学校</li>
+      <li class="list-group-item">长沙</li>
+      <li class="list-group-item">美食</li>
+      <li class="list-group-item">换装</li>
+      <li class="list-group-item">书籍</li>
+      <li class="list-group-item">活动</li>
+    </ul>
+  </div>
+  <div class="col-md-6 mt-4 " style="margin-left: -15px">
+    <!--    //轮播图-->
+    <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel" style="height: 100%">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner carousel-fade" style="width: 610px">
+        <div class="carousel-item active " data-interval="1000" >
+          <img src="images/5.jpg" class="d-block w-100" alt="..." style= "height: 491px;">
+          <div class="carousel-caption d-none d-md-block">
+            <p></p>
+          </div>
+        </div>
+        <div class="carousel-item" data-interval="1000">
+          <img src="images/6.jpg" class="d-block w-100" style= "height: 491px;"alt="...">
+        </div>
+        <div class="carousel-item" data-interval="1000">
+          <img src="images/7.jpg" class="d-block w-100" alt="..." style= "height: 491px;">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-3 mt-4 " style="margin-left: 10px;">
+    <div class="card text-light" style="width: 100%;background-color:  #4d4e53 !important;height: 491px !important;">
+      <img src="images/cute.jpg" class="card-img-top  mt-4 container pic2" alt="...">
+      <div class="card-body " style="font-size: 17px;margin-left: 30px">
+        <p class="card-text">
+        <p style="text-decoration: none;font-size: 17px"> 博主：佳狗的日常</p>
+        <p style="text-decoration: none;font-size: 17px"> 现居：北京</p>
+        <p style="text-decoration: none;font-size: 17px"> 微信：15083697617</p>
+        <p style="text-decoration: none;font-size: 17px"> qq：1287831917</p>
+        <p style="text-decoration: none;font-size: 17px"> 职业：前端设计师</p>
+        <p style="text-decoration: none;font-size: 17px"> email：jaigou@qq.com</p>
+        <p style="text-decoration: none;font-size: 17px"> 爱好：看书、跳舞、看电影</p>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="all_four" style=" width:1200px;margin: 0 auto">
+  <div class="card mt-2 me float-left" style="width:905px">
+    <h5 class="card-header movie">最新影评</h5>
+    <%data.articles.forEach(function(article,key){%>
+    <div class="card-body" style="border-bottom: #f2dede 1px solid">
+      <div style="height: 200px;width: 130px;float: left" class="pic1">
+        <img src="/uploads/<%=article.pic%>" class="mr-5 float-left pic" alt="..." style="width: 100px;">
+      </div>
+      <h5 class="card-title">  <a href="/user/movie_show/<%=article.category_id%>"><!--        参数.表的字段名-->
+        <%=article.name%>
+      </a></h5>
+      <p class="card-text text-decoration-none" style="font-size:medium"> <%=article.content%></p>
+        <a href="/user/movie_show/<%=article.category_id%>" class="btn btn-primary " style="margin-left: 510px;position: absolute">阅读更多</a>
+    </div>
+    <%})%>
+  </div>
+  <div class="mt-2 float-right " style="width: 277.5px;height: 370px;background-color: #8da6ce">
+    <span class="title1 ml-2" style="font-size: 25px">热门标签</span>
+    <div class="mt-4 w-100  " style="background-color: #80bdff !important;">
+    <button type="button" class="btn mt-2 ml-1 btn-outline-dark">衣服链接</button>
+    <button type="button" class="btn btn-outline-dark mt-2 ml-1">小姐姐</button>
+    <button type="button" class="btn btn-outline-dark mt-2 ml-4">精致</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">女孩</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">化妆</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">室友</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">好看</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">拍照</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">旅游</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">换装秀</button>
+    <button type="button" class="btn btn-outline-dark mt-2 ml-4">周震南</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">赖冠霖</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">易烊千玺</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">室友</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">跳舞</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">拍照</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">上课</button>
+    <button type="button" class="btn btn-outline-dark mt-1 ml-4">换装秀</button>
+  </div>
+  </div>
+
+
+  <div class="card ml-2 float-right mt-2" style="width: 280px">
+    <img src="./images/nidemingzi.jpg" class="card-img-top w-100" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">2019年度电影票房排行</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">哪吒之魔童降世</li>
+      <li class="list-group-item">流浪地球</li>
+      <li class="list-group-item">复仇者联盟4：终局之战</li>
+      <li class="list-group-item">我和我的祖国</li>
+      <li class="list-group-item">中国机长</li>
+      <li class="list-group-item">疯狂的外星人</li>
+      <li class="list-group-item">飞驰人生</li>
+    </ul>
+    <div class="card-body text-right">
+      <a href="users/allmoco" class="card-link">查看影评</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--  <div class="col-md-3">-->
+<!--    <p>论室友的拍照技术</p>-->
+<!--    <span>在实训中我学到了很多新知识。是一个让我把书本上的理论知识运用于实践中的好机会。-->
+<!--      这对于我来说也是一个技能的获取， 为以后找工作提供了一个很好的选择。-->
+<!--      在这次实训中还锻炼了我其他方面的能力，提高了我的综合素质。-->
+<!--      首先，它锻炼了我做项目的能力，提高了独立思考，在工作的过程中复习了以前学过的知识，-->
+<!--      并掌握了一些应用知识的技巧。-->
+<!--      其次，实训中的项目作业也是我更加有团队精神。-->
+<!--      从那里我学会了很多找工作的心态，比如继续学习，不断提升理论涵养、一定要提高工作积极性和主动性等心态。</span>-->
+<!--    <p>还想去哪玩？</p>-->
+<!--    <span>在实训中我学到了很多新知识。是一个让我把书本上的理论知识运用于实践中的好机会。-->
+<!--      这对于我来说也是一个技能的获取， 为以后找工作提供了一个很好的选择。-->
+<!--      在这次实训中还锻炼了我其他方面的能力，提高了我的综合素质。-->
+<!--      首先，它锻炼了我做项目的能力，提高了独立思考，在工作的过程中复习了以前学过的知识，-->
+<!--      并掌握了一些应用知识的技巧。-->
+<!--     </span>-->
+<!--  </div>-->
+
+  </body>
+  <script src="bootstrap-4/js/jquery-3.4.1.min.js"></script>
+  <script src="bootstrap-4/js/bootstrap.js">
+  </script>
+
+</html>

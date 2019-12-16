@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="/bootstrap-4/css/bootstrap.css">
+
+</head>
+<body>
+<%- include('../layout/nav.html'); %>
+<div class="all_four    mt-2 container"style="width:1200px;margin: 0 auto" >
+    <div class="card  me float-left" style="width:905px">
+        <h5 class="card-header"><%=data.articles.name%>
+            <span class=" float-right" style="font-size: 16px !important;">所属分类：<%=data.category[0].category_name%></span>
+        </h5>
+        <div class="card-body float-left" style="border-bottom: #f2dede 1px solid">
+            <img src="/uploads/<%=data.articles.pic%>" class="mr-5 float-left" alt="..." style="width: 100px">
+
+            <p class="card-text text-decoration-none" style="font-size:medium;" > <%=data.articles.mycontent%></p>
+            <p class="card-text text-decoration-none" style="font-size:medium;" > <%=data.articles.create_at%></p>
+            <span>已有<%=data.articles.views%>人围观</span>
+<!--            <a href="#" class="btn btn-primary " style="margin-left: 550px">阅读更多</a>-->
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script src="/bootstrap-4/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap-4/js/bootstrap.js"></script>
+<script src="/javascripts/marked.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+
+        $("#content").html(
+            marked($("#contents").text(
+
+            ))
+        );
+    });
+</script>
+</html>

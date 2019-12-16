@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="/bootstrap-4/css/bootstrap.css">
+</head>
+<body style="background-color: #80bdff !important;">
+<%- include('../layout/nav.html'); %>
+<div class="card " style="width: 38rem;margin: 0 auto;">
+    <img src="/uploads/<%=data.user[0].pic%>" class="card-img-top  pic4" style="height: 400px" alt="...">
+    <div class="card-body">
+        <h5 class="card-title text-center">用户信息</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">博客名：<%=data.user[0].username%></li>
+        <li class="list-group-item">现居：<%=data.user[0].address%></li>
+        <li class="list-group-item">职业：<%=data.user[0].job%></li>
+        <li class="list-group-item">email：<%=data.user[0].email%></li>
+    </ul>
+</div>
+</body>
+</html>

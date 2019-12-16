@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="/bootstrap-4/css/bootstrap.css">
+</head>
+<body>
+<%if(data.msg != ''){%>
+<div class="alert alert-<%=data.msg.type%> alert-dismissible fade show" role="alert">
+    <strong>提示：</strong> <%=data.msg.message%>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<%}%>
+<%- include('../layout/nav.html'); %>
+<div class="container mt-4">
+    <div class="col-12">
+        <div class="card p-4">
+            <h1 class="h3">修改文章页面</h1>
+            <form action="/user/update" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<%=data.article.id%>">
+                <div class="form-group">
+                    <label for="title">标题：</label>
+                    <input name="title" type="text" required class="form-control" id="title" placeholder="请输入标题" value="<%=data.article.title%>">
+                </div>
+                <div class="form-group">
+                    <label for="category">所属分类:</label>
+                    <select name="category_id" class="form-control" id="category">
+                        <%data.category.forEach(function(category){%>
+                        <option value="<%=category.id%>"><%if(data.article.category_id==category.id){%> selected <%}%>><%=category.name%></option>
+                        <%})%>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="content">选择图片</label>
+                    <input name="pic" type="file" id="article_pic">
+                </div>
+                <div class="form-group">
+                    <label for="content">文章内容</label>
+                    <textarea name="content" class="form-control p-2" id="content" rows="3" >
+                      <%=data.article.content%>
+                     </textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="form-control btn btn-success">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
+</body>
+</html>

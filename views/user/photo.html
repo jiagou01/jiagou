@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相册</title>
+
+</head>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel="stylesheet" href="/stylesheets/web.css">
+<link rel="stylesheet" href="/bootstrap-4/css/bootstrap.css">
+<style>
+    .cd{
+        width: 340px;
+        height: 305px;
+        transition: all 1s;
+    }
+    .cd:hover{
+      transform: scale(1.05);
+        border: #a71d2a 2px solid;
+        transition: all 1s;
+    }
+</style>
+<body>
+<%- include('../layout/nav.html'); %>
+<div class="card1 container mt-2" style="width: 1080px;background-color: #E9EAED">
+    <div class="card1-header " style="background-color: #E9EAED">
+        哈哈：
+    </div>
+    <div class="card1-body">
+        <blockquote class="blockquote mb-0">
+            <p class="container" >卑微博主的部分的照片在这了</p>
+            <footer class="blockquote-footer">来自博主<cite title="Source Title">佳狗的日常</cite></footer>
+        </blockquote>
+    </div>
+</div>
+<div class="card-deck container mt-3" style="width: 1200px !important;margin:0 auto">
+
+    <div class="card cd" style="width: 385px">
+        <img src="/images/8.jpg" class="card-img-top float-left" alt="...">
+        <div class="card-footer">
+            <small class="text-muted">重庆</small>
+        </div>
+    </div>
+    <div class="card cd">
+        <img src="/images/IMG_2308.JPG" class="card-img-top" alt="...">
+        <div class="card-footer">
+            <small class="text-muted">南昌</small>
+        </div>
+    </div>
+    <div class="card cd">
+        <img src="/images/IMG_2314.JPG" class="card-img-top" alt="...">
+        <div class="card-footer">
+            <small class="text-muted">杭州</small>
+        </div>
+    </div>
+</div>
+<div class="card-deck container mt-3" style="width: 1200px !important;margin:0 auto">
+    <div class="card cd" style="width: 385px">
+        <img src="/images/IMG_2316.JPG" class="card-img-top float-left" alt="...">
+        <div class="card-footer">
+            <small class="text-muted">上海</small>
+        </div>
+    </div>
+    <div class="card cd">
+        <img src="/images/beijing3.png" style="width: 338px;height: 253px" class="card-img-top" alt="...">
+        <div class="card-footer">
+            <small class="text-muted">北京</small>
+        </div>
+    </div>
+    <div class="card cd">
+        <img src="/images/7.jpg" class="card-img-top" alt="...">
+        <div class="card-footer">
+            <small class="text-muted">长沙</small>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

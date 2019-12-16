@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="/bootstrap-4/css/bootstrap.css">
+</head>
+<style>
+    .picr{
+        width: 270px;
+        height: 120px;
+        transition: all 0.5s;
+    }
+    .picr:hover{
+        transform: scale(1.1);
+        transition: all 0.5s;
+    }
+    .card-img{
+        width: 200px;
+        height: 200px;
+        transition: all 0.5s;
+    }
+    .card-img:hover{
+        transform: scale(1.1);
+        transition: all 0.5s;
+    }
+    .card-header{
+        width: 150px;
+        position: relative;
+    }
+    .card-header::after{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 120px;
+        background: black;
+        height: 1px;
+        display: block;
+        transition: all 1s;
+    }
+    .card-header:hover::after{
+        width: 180px;
+        transition: all 1s;
+    }
+</style>
+<body>
+<div class="card text-white  mr-2 position-relative"  style="width: 100%;height: 400px">
+    <img src="../images/33.png" class="card-img" style="width: 100%;height: 400px" halt="...">
+    <div class="card-img-overlay">
+        <span class="card-text  text-break position-absolute" style="width:100px;height:30px;top: 200px;font-size: 20px;right: 400px" >佳狗的日常</span>
+        <div class="position-absolute" style="width:250px;height:30px;left: 1020px;top: 250px"><span>beijing &nbsp;</span><span>|</span><span>&nbsp; changsha</span></div>
+        <p class="card-text position-absolute"  style="width: 200px;height: 200px;top: 150px;left: 800px"> <img src="../images/headerpic.jpg" class="card-img"  halt="..."></p>
+    </div>
+</div>
+<%- include('./layout/nav.html'); %>
+<div class="all mt-2" style=" width:1200px;height:1200px;margin: 0 auto">
+<div class="all_four   float-left" >
+    <div class="card bg-white me float-left" style="width:905px">
+        <h5 class="card-header">特别的事</h5>
+
+            <div class="card-body float-left" style="border-bottom: #f2dede 1px solid">
+                <img src="images/7.jpg" class="mr-5 float-left" alt="..." style="width: 200px;height: 160px">
+                <h5 class="card-title">长沙</h5>
+                <p class="card-text text-decoration-none" style="font-size:medium;" > 今年五一去长沙玩几天，是我和室友最想去并且规划了很久的事情。也早早的买好了来回的票，不过我觉得这趟真的没有白去，
+                去了很多网红打卡的地方，吃到了当地的小龙虾和特色菜。当天到的时候就刷了一次火锅特别爽，在各个景点都拍了很多照片，值得提的是五一去长沙去吃什么都得排队，而且队伍还很长。终于理解灭霸为什么要消灭一半的人类了，个人建议
+                还是别再假期去玩，很浪费时间哦。建议你们去橘子洲、太平老街、湖南电视台那附近</p>
+                <a href="#" class="btn btn-primary " style="margin-left: 550px">阅读更多</a>
+            </div>
+
+        <div class="card-body" style="border-bottom: #f2dede 1px solid">
+            <img src="images/beijing.png" class="mr-5 float-left" alt="..." style="width: 200px;height: 160px">
+            <h5 class="card-title">北京</h5>
+            <p class="card-text text-decoration-none" style="font-size:medium;"> 我其实是来北京培训的，但是周末有休息。所以趁着有空的时候去过天安门故宫，最晚早上6点半的升旗仪式我是没去过，因为真的起不来。去天安门那边的话一定要早上去，不然会排队排到死。从小在江浙那边长大
+            ，来了北京之后真的感觉到了北京的人口是真的多。还有北京大学，这个中国最高学府进去是要提前预约的，我被我同学拉着去感受一下文化气息。说实在校园里真的到处充满了文化气息，在学校闲逛真的只有游客。</p>
+            <a href="#" class="btn btn-primary " style="margin-left: 550px">阅读更多</a>
+        </div>
+        <div class="card-body" style="border-bottom: #f2dede 1px solid">
+            <img src="images/IMG_2316.JPG" class="mr-5 float-left" alt="..." style="width: 200px;height: 160px">
+            <h5 class="card-title">上海</h5>
+            <p class="card-text text-decoration-none" style="font-size:medium"> 在上海呆了两个月，那是暑假去上海打暑假工的时候。室友都想去上海那边飘，我也跟着去了，在上海做了两个月的暑假工，趁着休息的时候去了上海的外滩，晚上可以去看东方明珠，还有烟花。重要的是我最想去的地方是迪士尼，虽然没有香港的迪士尼那么盛大，但是是所大多数女生向往的地方，我觉得情侣或者是闺蜜很适合去哦。</p>
+            <a href="#" class="btn btn-primary " style="margin-left: 550px">阅读更多</a>
+        </div>
+        <div class="card-body " style="width:903px;border-bottom: #f2dede 1px solid;background-color: #c3e6cb">
+            <h5 class="card-title">来聊聊你去过哪里旅行吧...</h5>
+            <form action="/users/vacation" method="post"  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="article_pic">去过哪里呢</label>
+                    <input name="title" type="text" id="title" style="background-color: #f2dede">
+                </div>
+                <div class="form-group">
+                    <label for="article_pic">传张照片吧:</label>
+                    <input name="pic" type="file" id="article_pic" style="background-color: #f2dede">
+                </div>
+                <div class="form-group">
+                    <textarea name="content"  id="content" style="width: 860px;height: 200px"></textarea>
+                </div>
+                <div class="form-group">
+                    <!--                     提交按钮，-->
+                    <input type="submit" class="form-control btn btn-danger " style="width: 70px;float:right;margin-right:50px">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="card float-right sticky-top" style="width: 17rem;">
+    <h5 class="card-title">本栏推荐</h5>
+    <img src="../images/6.jpg" class="card-img-top w-100 container-fluid mt-2 picr" style="height: 120px" alt="...">
+    <div class="card-body">
+        <p class="card-text"> 最想去哪旅游？</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">北京(天安门，长城，故宫)</li>
+        <li class="list-group-item text-center">重庆</li>
+        <li class="list-group-item text-center">长沙</li>
+        <li class="list-group-item text-center">重庆</li>
+        <li class="list-group-item text-center">上海（迪士尼，欢乐谷，外滩 ）</li>
+    </ul>
+    <div class="card-body">
+        <a href="#" class="card-link">了解更多</a>
+        <a href="#" class="card-link float-right">不了</a>
+    </div>
+</div>
+</div>
+<!--下面的四张图-->
+<!--<div class="down_four float-left w-75">-->
+<!--<div class="card" style="width: 18rem;">-->
+<!--    <img src="images/2.jpg" class="card-img-top" alt="...">-->
+<!--    <div class="card-body">-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="card" style="width: 18rem;">-->
+<!--    <img src="images/2.jpg" class="card-img-top" alt="...">-->
+<!--    <div class="card-body">-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="card" style="width: 18rem;">-->
+<!--    <img src="images/2.jpg" class="card-img-top" alt="...">-->
+<!--    <div class="card-body">-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="card" style="width: 18rem;">-->
+<!--    <img src="images/2.jpg" class="card-img-top" alt="...">-->
+<!--    <div class="card-body">-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+</body>
+
+<script src="/bootstrap-4/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap-4/js/bootstrap.js"></script>
+<script src="/javascripts/calendar.js"></script>
+<script>
+
+    var data = [
+
+    ]
+
+    $("#calendar").calendar({
+        data: data,
+        mode: "month",
+        //  maxEvent: 3,
+        //showModeBtn: false
+        //  newDate: "2018-04-1",
+        cellClick: function (events) {
+            //viewCell的事件列表
+        },
+    })
+</script>
+</html>

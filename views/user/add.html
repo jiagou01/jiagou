@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="/bootstrap-4/css/bootstrap.css">
+    <link rel="stylesheet" href="/editor.md/css/editormd.css">
+
+</head>
+<style>
+    .pic4{
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        border-radius: 50%;
+        margin-left: 70px;
+    }
+    .submit{
+        border-radius: 15px;
+        position: relative;
+    }
+    /*.submit::after{*/
+    /*    content: "";*/
+    /*    position: absolute;*/
+    /*    bottom:0;*/
+    /*    left: -120px;*/
+    /*    background-color:darkred;*/
+    /*    width: 0;*/
+    /*    height: 0;*/
+    /*    border:20px solid transparent;*/
+    /*    border-bottom-color: 20px solid #fff;*/
+    /*    display: block;*/
+    /*}*/
+    .content{
+
+    }
+</style>
+<body>
+<%- include('../layout/nav.html'); %>
+<div class="all_four mt-2  " style=" width:1200px;height:1900px;margin: 0 auto">
+    <div class="card p-4 float-left" style="width: 903px;border:1px #e96ba8 solid;border-radius: 20px !important">
+        <h2 class="h3" style="font-size: 25px">既然来了，就说点什么吧..</h2>
+        <!--             跳转到store页面-->
+        <form action="/user/store" method="post"  enctype="multipart/form-data">
+            <div class="form-group d-lg-none mt-3">
+                <label for="id">id</label>
+                <input name="id" type="text"  id="id" style="">
+            </div>
+            <div class="form-group" style="font-size: 25px">
+                博客名：<span style="color: #2B81AF"><%=data.art.username%></span>
+            </div>
+            <div class="form-group">
+                <label for="article_pic">上传张图片吧:</label>
+                <input name="pic" type="file" id="article_pic" style="background-color: #f2dede">
+            </div>
+            <div class="form-group">
+                <textarea name="content"  id="content" style="width: 860px;height: 200px;border-radius: 15px"></textarea>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/addface.png" style="width: 30px;height: 30px">&nbsp;&nbsp;&nbsp;</span><span>&nbsp;&nbsp;<img src="/images/addpic.png" style="width: 30px;height: 30px"></span>
+            </div>
+            <div class="form-group">
+                <!--                     提交按钮，-->
+                <input type="submit" class="form-control btn btn-danger submit " style="width: 70px;float:right;margin-right:50px">
+            </div>
+        </form>
+    </div>
+    <div class="card float-right sticky-top" style="width: 18rem;">
+        <img src="/images/tu2.png" class="card-img-top" style="height:170px " alt="...">
+        <img src="/uploads/<%=data.art.pic%>" class="card-img-top  pic4"  alt="...">
+        <p  style="height: 0.1rem;margin-left: 20px">
+            <img src="/uploads/like1.png" style="width: 20px;" class="like1">
+            <img src="/uploads/like2.png"  style="width: 20px;" class="like2">
+        </p>
+        <P class="ml-2 mt-3">点赞量：<span class="sums"><%=data.art.likes%></span></P>
+        <div class="card-body">
+            <h5 class="card-title">用户信息</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">博客名：<%=data.art.username%></li>
+            <li class="list-group-item">现居：<%=data.art.address%></li>
+            <li class="list-group-item">职业：<%=data.art.job%></li>
+            <li class="list-group-item">email：<%=data.art.email%></li>
+        </ul>
+    </div>
+
+<div class="card mt-2 me float-left" style="width:903px;margin: 0 auto">
+    <h5 class="card-header">评论区见</h5>
+    <%data.articles.forEach(function(article,key){%>
+    <div class="card-body" style="border-bottom: #f2dede 1px solid">
+        <div style="height: 200px;width: 130px;float: left">
+            <img src="/uploads/<%=article.pic%>" class="mr-5 float-left" alt="..." style="width: 100px;">
+        </div>
+
+        <h5 class="card-title">  <a href="/users/formshow/<%=article.username%>">
+            <%=article.username%>
+        </a></h5>
+        <p class="card-text text-decoration-none" style="font-size:medium"> <%=article.content%></p>
+        <p style="float: right;margin-right: 40px"><%=article.create_at%></p>
+    </div>
+    <%})%>
+</div>
+</div>
+</body>
+<script src="/bootstrap-4/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap-4/js/bootstrap.js">
+
+</script>
+<script src="/editor.md/src/editormd.js"></script>
+<!--<script type="text/javascript">-->
+<!--    $(function() {-->
+<!--        var editor = editormd("content", {-->
+<!--            width: "50%",-->
+<!--            height: "200",-->
+<!--            imageUpload  : true,-->
+<!--            saveHTMLToTextarea   : true,//自动创建一个存放html代码的textarea-->
+<!--            imageFormats  : ["jpg", "jpeg", "gif", "png", "bmp", "webp",'mp4'],-->
+<!--            imageUploadURL : "/user/upload/",-->
+<!--            htmlDecode : true ,// 开启HTML代码解析模式-->
+<!--            htmlDecode : "style,script,iframe,sub,sup|on*", //-->
+<!--            path : "/editor.md/lib/"-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+<script type="text/javascript">
+    window.onload=function(){
+        var like1=document.querySelector(".like1");
+        var like2=document.querySelector(".like2");
+        var sums=document.querySelector(".sums");
+        var req = new XMLHttpRequest();//创建 XMLHttpRequest 对象
+        like2.style.display="none";
+        like1.onclick = function(){//创建点击
+            var sum = parseInt(sums.innerText);
+            this.style.display="none";
+            like2.style.display="inline-block"
+            sum++;
+            req.open("get","/users/sum?likes="+sum+"&&"+"title="+"<%=data.art.username%>");//向服务器发送请求以get类型
+            req.send()
+            req.onreadystatechange = function () {//onreadystatechange 事件
+                //当请求被发送到服务器时，执行下面代码
+                if(req.readyState === 4){//readyState===4 表示请求已完成，且响应已就绪
+                    sums.innerHTML = req.responseText;// 获得字符串形式的响应数据
+                }
+            }
+        }
+    }
+
+
+</script>
+</html>

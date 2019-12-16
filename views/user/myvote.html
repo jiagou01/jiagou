@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/web.css">
+    <link rel="stylesheet" href="/bootstrap-4/css/bootstrap.css">
+    <link rel="stylesheet" href="/editor.md/css/editormd.css">
+
+</head>
+<body style="background-color: white !important;">
+<%- include('../layout/nav.html'); %>
+<div class="card mt-2 me" style="width:1200px;margin: 0 auto;background-color: #E9EAED">
+    <h5 class="card-header">我的评论</h5>
+    <div class="card-body" style="border-bottom: #f2dede 1px solid">
+        <div style="height: 200px;width: 130px;float: left">
+            <img src="/uploads/<%=data.articles.pic%>" class="mr-5 float-left" alt="..." style="width: 100px;">
+        </div>
+        <h5 class="card-title">
+            <%=data.articles.username%>
+        </h5>
+        <p class="card-text text-decoration-none" style="font-size:medium"> <%=data.articles.content%></p>
+        <p class="card-text  text-dark float-right mr-5"><%=data.articles.create_at%></p>
+        <span class="float-right ml-5"><a href="/user/dropvote/<%=data.articles.id%>">删除</a></span>
+    </div>
+
+</div>
+
+
+</body>
+<script src="/bootstrap-4/js/jquery-3.4.1.min.js"></script>
+<script src="/bootstrap-4/js/bootstrap.js">
+
+</script>
+<script src="/editor.md/src/editormd.js"></script>
+<!--<script type="text/javascript">-->
+<!--    $(function() {-->
+<!--        var editor = editormd("content", {-->
+<!--            width: "50%",-->
+<!--            height: "200",-->
+<!--            imageUpload  : true,-->
+<!--            saveHTMLToTextarea   : true,//自动创建一个存放html代码的textarea-->
+<!--            imageFormats  : ["jpg", "jpeg", "gif", "png", "bmp", "webp",'mp4'],-->
+<!--            imageUploadURL : "/user/upload/",-->
+<!--            htmlDecode : true ,// 开启HTML代码解析模式-->
+<!--            htmlDecode : "style,script,iframe,sub,sup|on*", //-->
+<!--            path : "/editor.md/lib/"-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+</html>
